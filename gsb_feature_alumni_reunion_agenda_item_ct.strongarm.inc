@@ -95,7 +95,20 @@ function gsb_feature_alumni_reunion_agenda_item_ct_strongarm() {
           'weight' => '10',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'current_reunion_block' => array(
+          'default' => array(
+            'weight' => '7',
+            'visible' => TRUE,
+          ),
+        ),
+        'conditional_stanford_block' => array(
+          'default' => array(
+            'weight' => '9',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__alumni_reunion_agenda_item'] = $strongarm;

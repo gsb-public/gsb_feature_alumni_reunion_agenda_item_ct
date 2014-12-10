@@ -5,3 +5,69 @@
  */
 
 include_once 'gsb_feature_alumni_reunion_agenda_item_ct.features.inc';
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function gsb_feature_alumni_reunion_agenda_item_ct_field_extra_fields() {
+
+  $extra['node']['alumni_reunion_agenda_item']['display']['current_reunion_block'] = array(
+    'label' => t('Current Reunion'),
+    'description' => t('Current Reunion'),
+    'weight' => 30,
+  );
+
+  $extra['node']['alumni_reunion_agenda_item']['display']['conditional_stanford_block'] = array(
+    'label' => t('Conditional Stanford'),
+    'description' => t('Conditional Stanford'),
+    'weight' => 31,
+  );
+
+  return $extra;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, $langcode) {
+  // If this field is not configured for this view mode, skip it.
+  $fields = field_extra_fields_get_display('node', $node->type, $view_mode);
+
+  if (!empty($fields['current_reunion_block']['visible'])) {
+    $entity_type = 'fieldable_panels_pane';
+    $entity_id = '13946';
+    $entity = entity_load_single($entity_type, $entity_id);
+    $render_array = entity_view($entity_type, array($entity_id => $entity));
+    $content = render($render_array);
+
+    $node->content['current_reunion_block'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array(
+          'current-reunion-block',
+         ),
+       ),
+       '#children' => $content,
+    );
+  }
+
+  if (!empty($fields['conditional_stanford_block']['visible'])) {
+    if ($node->field_stanford_event['und'][0]['value']) {
+      $entity_type = 'fieldable_panels_pane';
+      $entity_id = '13926';
+      $entity = entity_load_single($entity_type, $entity_id);
+      $render_array = entity_view($entity_type, array($entity_id => $entity));
+      $content = render($render_array);
+
+      $node->content['conditional_stanford_block'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+           'class' => array(
+            'conditional-stanford-block',
+           ),
+         ),
+       '#children' => $content,
+      );
+    }
+  }
+}

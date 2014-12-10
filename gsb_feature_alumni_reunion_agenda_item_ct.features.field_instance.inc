@@ -24,10 +24,11 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
         'module' => 'entityreference',
         'settings' => array(
           'conditions' => array(),
-          'link' => FALSE,
+          'links' => 1,
+          'view_mode' => 'default',
         ),
-        'type' => 'entityreference_label',
-        'weight' => 11,
+        'type' => 'entityreference_entity_view',
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -237,8 +238,8 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
 Cost: Included in Friday program price
 Cost: Included in Saturday program price
 Cost: Included in Sunday program price
-COST: No charge, registration is not required
-COST: No charge, but registration is required
+Cost: No charge, registration is not required
+Cost: No charge, but registration is required
 SOLD OUT',
         'available_options_php' => '',
         'markup_available_options_php' => '&lt;none&gt;',
@@ -370,7 +371,7 @@ SOLD OUT',
       ),
       'rel_remove' => 'default',
       'title' => 'optional',
-      'title_label_use_field_label' => 1,
+      'title_label_use_field_label' => 0,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 'optional',
@@ -405,7 +406,7 @@ SOLD OUT',
           'conditions' => array(),
         ),
         'type' => 'link_default',
-        'weight' => 10,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -472,15 +473,11 @@ SOLD OUT',
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
           'conditions' => array(),
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 7,
+        'type' => 'field_collection_fields',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -525,10 +522,11 @@ SOLD OUT',
         'module' => 'entityreference',
         'settings' => array(
           'conditions' => array(),
-          'link' => FALSE,
+          'links' => 0,
+          'view_mode' => 'idea_story_related',
         ),
-        'type' => 'entityreference_label',
-        'weight' => 8,
+        'type' => 'entityreference_entity_view',
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -573,17 +571,13 @@ SOLD OUT',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
+        'module' => 'gsb_field_formatter',
         'settings' => array(
-          'add' => 'Add',
           'conditions' => array(),
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
-        'weight' => 9,
+        'type' => 'gsb_field_formatter_related_items_field_collection',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -738,7 +732,7 @@ SOLD OUT',
           'conditions' => array(),
         ),
         'type' => 'list_default',
-        'weight' => 12,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
