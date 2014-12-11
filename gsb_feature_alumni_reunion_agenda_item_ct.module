@@ -71,3 +71,73 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, 
     }
   }
 }
+
+/**
+ * Implements hook_node_insert().
+ */
+function gsb_feature_alumni_reunion_agenda_item_ct_node_insert($node) {
+  _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function gsb_feature_alumni_reunion_agenda_item_ct_node_update($node) {
+  _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
+}
+
+/**
+ * Helper for hook_node_insert() and hook_node_update().
+ */
+function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
+  // Include the pathauto library.
+  module_load_include('inc', 'pathauto');
+
+  // if this is not an agenda item, then...
+  if ($node->type != 'alumni_reunion_agenda_item') {
+    // ... this is not the node we are looking for
+    return;
+  }
+
+  $group_nids = array();
+
+  // If the agenda item is exclusive only create aliases for those groups.
+  if (!empty($node->field_reunion_group_page_ref['und'])) {
+    foreach($node->field_reunion_group_page_ref['und'] as $key => $group) {
+      $group_nids[] = $group['target_id'];
+    }
+  }
+  else {
+    // DB Query to get list of nids for all group pages with a matching session id.
+    $results = db_query(
+      "Select entity_id from {field_data_field_reunion_session_ref} where field_reunion_session_ref_target_id = " . $node->field_reunion_session_ref['und'][0]['target_id'] . " AND bundle = 'alumni_reunion_group_page'"
+    );
+    foreach ($results as $record) {
+      $group_nids[] = $record->entity_id;
+    }
+  }
+
+  // Get the session title and clean it for urls.
+  $session_nid = $node->field_reunion_session_ref['und'][0]['target_id'];
+  $session_node = node_load($session_nid);
+  $path = pathauto_cleanstring($session_node->title);
+
+  // Clean the node title.
+  $path .= '/' . pathauto_cleanstring($node->title);
+
+  // Loop through the group nodes and create aliases.
+  foreach ($group_nids as $group_nid) {
+    // Get the alias of the group page.
+    $alias_path = drupal_get_path_alias('node/' . $group_nid) . '/' . $path;
+
+    // Check to see if a path alias exists, if not then save it.
+    $path_info = path_load(array('alias' => $path));
+    if (empty($path_info)) {
+      $edit = array(
+        'source'   => 'node/' . $node->nid,
+        'alias'    => $alias_path,
+      );
+      path_save($edit);
+    }
+  }
+}
