@@ -184,7 +184,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_cost',
-    'label' => 'Cost',
+    'label' => 'Pricing',
     'required' => 0,
     'settings' => array(
       'better_formats' => array(
@@ -234,13 +234,11 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
       'active' => 1,
       'module' => 'select_or_other',
       'settings' => array(
-        'available_options' => 'Cost: Included in Thursday program price
-Cost: Included in Friday program price
-Cost: Included in Saturday program price
-Cost: Included in Sunday program price
-Cost: No charge, registration is not required
-Cost: No charge, but registration is required
-SOLD OUT',
+        'available_options' => 'Included in the Thursday program
+Included in the Friday program
+Included in the Saturday program
+Included in the Sunday program
+Free',
         'available_options_php' => '',
         'markup_available_options_php' => '&lt;none&gt;',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
@@ -456,6 +454,107 @@ SOLD OUT',
       ),
       'type' => 'link_field',
       'weight' => 16,
+    ),
+    'workbench_access_field' => 0,
+  );
+
+  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_registration'
+  $field_instances['node-alumni_reunion_agenda_item-field_registration'] = array(
+    'bundle' => 'alumni_reunion_agenda_item',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_registration',
+    'label' => 'Registration',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'full_html' => 'full_html',
+          'gsb_html_text' => 'gsb_html_text',
+          'gsb_wysiwyg_text' => 'gsb_wysiwyg_text',
+          'image_resource_caption' => 'image_resource_caption',
+          'markdown' => 'markdown',
+          'plain_text' => 'plain_text',
+          'slideshow' => 'slideshow',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'gsb_html_text' => array(
+              'weight' => -9,
+            ),
+            'gsb_wysiwyg_text' => array(
+              'weight' => -10,
+            ),
+            'image_resource_caption' => array(
+              'weight' => 0,
+            ),
+            'markdown' => array(
+              'weight' => 0,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'slideshow' => array(
+              'weight' => 0,
+            ),
+          ),
+        ),
+      ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'select_or_other',
+      'settings' => array(
+        'available_options' => 'SOLD OUT: Registration is closed
+Online registration is closed. Register in person.
+No registration required
+Included when you register for the Thursday reunion program
+Included when you register for the Friday reunion program
+Included when you register for the Saturday reunion program
+Included when you register for the Sunday reunion program
+Add this event separately during the reunion registration process',
+        'available_options_php' => '',
+        'markup_available_options_php' => '&lt;none&gt;',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'other' => 'Other',
+        'other_size' => 60,
+        'other_title' => '',
+        'other_unknown_defaults' => 'other',
+        'sort_options' => 0,
+      ),
+      'type' => 'select_or_other',
+      'weight' => 7,
     ),
     'workbench_access_field' => 0,
   );
@@ -759,7 +858,7 @@ SOLD OUT',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_onoff',
-      'weight' => 7,
+      'weight' => 8,
     ),
     'workbench_access_field' => 0,
   );
@@ -769,13 +868,14 @@ SOLD OUT',
   t('Alumni');
   t('Alumni Reunion Session');
   t('Body');
-  t('Cost');
   t('Date/Time');
   t('Exclusive to');
   t('Faculty');
   t('Link');
   t('Location');
+  t('Pricing');
   t('Publication');
+  t('Registration');
   t('Stanford Event');
   t('Story or Announcement');
 
