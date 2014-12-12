@@ -17,6 +17,13 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'alumni_reunion_agenda_item';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
+    'field_alumni_ref' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+        ),
+      ),
+    ),
     'field_related_faculty' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -32,13 +39,6 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
       ),
     ),
     'field_related_other_unlimited' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-        ),
-      ),
-    ),
-    'field_alumni_ref' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
@@ -69,30 +69,32 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_layout_settings_info() {
       'left' => array(
         0 => 'field_reunion_session_ref',
         1 => 'field_reunion_group_page_ref',
-        2 => 'field_date',
+        2 => 'field_event_date',
         3 => 'field_link_single',
         4 => 'field_body',
         5 => 'field_cost',
-        6 => 'field_stanford_event',
+        6 => 'field_registration',
+        7 => 'field_stanford_event',
       ),
       'right' => array(
-        7 => 'current_reunion_block',
-        8 => 'group_wrapper_related',
-        9 => 'field_related_faculty',
-        10 => 'conditional_stanford_block',
-        11 => 'field_alumni_ref',
-        12 => 'field_related_idea_story',
-        13 => 'field_related_other_unlimited',
-        14 => 'field_link_unlimited',
+        8 => 'current_reunion_block',
+        9 => 'group_wrapper_related',
+        10 => 'field_related_faculty',
+        11 => 'conditional_stanford_block',
+        12 => 'field_alumni_ref',
+        13 => 'field_related_idea_story',
+        14 => 'field_related_other_unlimited',
+        15 => 'field_link_unlimited',
       ),
     ),
     'fields' => array(
       'field_reunion_session_ref' => 'left',
       'field_reunion_group_page_ref' => 'left',
-      'field_date' => 'left',
+      'field_event_date' => 'left',
       'field_link_single' => 'left',
       'field_body' => 'left',
       'field_cost' => 'left',
+      'field_registration' => 'left',
       'field_stanford_event' => 'left',
       'current_reunion_block' => 'right',
       'group_wrapper_related' => 'right',

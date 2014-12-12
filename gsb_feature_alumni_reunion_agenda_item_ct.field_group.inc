@@ -23,11 +23,11 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
     'label' => 'Related Content',
     'weight' => '9',
     'children' => array(
-      0 => 'field_related_faculty',
-      1 => 'field_related_idea_story',
-      2 => 'field_related_other_unlimited',
-      3 => 'field_link_unlimited',
-      4 => 'field_alumni_ref',
+      0 => 'field_alumni_ref',
+      1 => 'field_link_unlimited',
+      2 => 'field_related_faculty',
+      3 => 'field_related_idea_story',
+      4 => 'field_related_other_unlimited',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -52,13 +52,13 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Related',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
-      0 => 'field_related_faculty',
-      1 => 'field_related_idea_story',
-      2 => 'field_related_other_unlimited',
-      3 => 'field_link_unlimited',
-      4 => 'field_alumni_ref',
+      0 => 'field_alumni_ref',
+      1 => 'field_link_unlimited',
+      2 => 'field_related_faculty',
+      3 => 'field_related_idea_story',
+      4 => 'field_related_other_unlimited',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

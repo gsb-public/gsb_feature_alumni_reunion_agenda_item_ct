@@ -254,8 +254,8 @@ Free',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_date'
-  $field_instances['node-alumni_reunion_agenda_item-field_date'] = array(
+  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_event_date'
+  $field_instances['node-alumni_reunion_agenda_item-field_event_date'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
     'custom_remove' => '',
@@ -286,7 +286,7 @@ Free',
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_date',
+    'field_name' => 'field_event_date',
     'label' => 'Date/Time',
     'required' => 0,
     'settings' => array(
@@ -308,7 +308,7 @@ Free',
         'input_format_custom' => '',
         'label_position' => 'above',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'repeat_collapsed' => 0,
+        'repeat_collapsed' => 1,
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
@@ -474,7 +474,7 @@ Free',
           'conditions' => array(),
         ),
         'type' => 'text_default',
-        'weight' => 14,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -831,7 +831,7 @@ Add this event separately during the reunion registration process',
           'conditions' => array(),
         ),
         'type' => 'list_default',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
