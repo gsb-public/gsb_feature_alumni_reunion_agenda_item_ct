@@ -57,7 +57,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 13,
+      'weight' => 23,
     ),
     'workbench_access_field' => 0,
   );
@@ -453,7 +453,58 @@ Free',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'link_field',
-      'weight' => 16,
+      'weight' => 26,
+    ),
+    'workbench_access_field' => 0,
+  );
+
+  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_person_fac_ref'
+  $field_instances['node-alumni_reunion_agenda_item-field_person_fac_ref'] = array(
+    'bundle' => 'alumni_reunion_agenda_item',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'conditions' => array(),
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_person_fac_ref',
+    'label' => 'Faculty',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 20,
     ),
     'workbench_access_field' => 0,
   );
@@ -559,54 +610,6 @@ Add this event separately during the reunion registration process',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_related_faculty'
-  $field_instances['node-alumni_reunion_agenda_item-field_related_faculty'] = array(
-    'bundle' => 'alumni_reunion_agenda_item',
-    'custom_add_another' => '',
-    'custom_remove' => '',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'conditions' => array(),
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_fields',
-        'weight' => 9,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_related_faculty',
-    'label' => 'Faculty',
-    'required' => 0,
-    'settings' => array(
-      'custom_add_another' => '',
-      'custom_remove' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'field_collection_embed',
-      'weight' => 12,
-    ),
-    'workbench_access_field' => 0,
-  );
-
   // Exported field_instance: 'node-alumni_reunion_agenda_item-field_related_idea_story'
   $field_instances['node-alumni_reunion_agenda_item-field_related_idea_story'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
@@ -654,7 +657,7 @@ Add this event separately during the reunion registration process',
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 14,
+      'weight' => 24,
     ),
     'workbench_access_field' => 0,
   );
@@ -702,7 +705,7 @@ Add this event separately during the reunion registration process',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'field_collection_embed',
-      'weight' => 15,
+      'weight' => 25,
     ),
     'workbench_access_field' => 0,
   );

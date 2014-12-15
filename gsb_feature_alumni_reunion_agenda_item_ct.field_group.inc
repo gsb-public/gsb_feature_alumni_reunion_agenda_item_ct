@@ -25,9 +25,9 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
     'children' => array(
       0 => 'field_alumni_ref',
       1 => 'field_link_unlimited',
-      2 => 'field_related_faculty',
-      3 => 'field_related_idea_story',
-      4 => 'field_related_other_unlimited',
+      2 => 'field_related_idea_story',
+      3 => 'field_related_other_unlimited',
+      4 => 'field_person_fac_ref',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
