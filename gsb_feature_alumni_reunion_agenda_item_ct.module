@@ -131,7 +131,7 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
     $alias_path = drupal_get_path_alias('node/' . $group_nid) . '/' . $path;
 
     // Check to see if a path alias exists, if not then save it.
-    $path_info = path_load(array('alias' => $path));
+    $path_info = path_load(array('alias' => $alias_path));
     if (empty($path_info)) {
       $edit = array(
         'source'   => 'node/' . $node->nid,
