@@ -24,12 +24,29 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+        'conditions' => array(),
+      ),
+    ),
+    'related_title' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
         ),
         'conditions' => array(),
       ),
     ),
     'title' => array(
-      'weight' => '2',
+      'weight' => '3',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -78,6 +95,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
         ),
       ),
     ),
@@ -85,6 +108,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
         ),
       ),
     ),
@@ -96,13 +125,6 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
       ),
     ),
     'field_alumni_ref' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-        ),
-      ),
-    ),
-    'field_cost' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
@@ -125,19 +147,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
           'ow-def-cl' => TRUE,
           'ow-at' => '',
           'ow-def-at' => FALSE,
-        ),
-      ),
-    ),
-    'field_reunion_session_ref' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'ow' => TRUE,
-          'ow-el' => 'div',
-          'ow-cl' => '',
-          'ow-def-cl' => TRUE,
-          'ow-at' => '',
-          'ow-def-at' => FALSE,
+          'fi' => TRUE,
+          'fi-el' => 'div',
+          'fi-cl' => '',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => TRUE,
         ),
       ),
     ),
@@ -191,41 +206,41 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'left' => array(
-        0 => 'field_reunion_session_ref',
-        1 => 'alumni_reunion_agenda_item_date',
-        2 => 'title',
-        3 => 'field_link_single',
-        4 => 'field_body',
-        5 => 'field_reunion_group_page_ref',
-        6 => 'field_cost',
+        0 => 'field_reunion_group_page_ref',
+        2 => 'alumni_reunion_agenda_item_date',
+        4 => 'group_wrapper_title_location',
+        7 => 'title',
+        8 => 'field_link_single',
+        10 => 'field_body',
       ),
       'right' => array(
-        7 => 'current_reunion_block',
-        8 => 'group_wrapper_related',
-        9 => 'field_related_faculty',
-        10 => 'conditional_stanford_block',
-        11 => 'field_alumni_ref',
-        12 => 'field_related_idea_story',
-        13 => 'field_related_other_unlimited',
-        14 => 'field_link_unlimited',
+        1 => 'related_title',
+        3 => 'field_related_faculty',
+        5 => 'field_alumni_ref',
+        6 => 'field_related_idea_story',
+        9 => 'field_related_other_unlimited',
+        11 => 'field_link_unlimited',
+        12 => 'current_reunion_block',
+        13 => 'group_wrapper_related',
+        14 => 'conditional_stanford_block',
       ),
     ),
     'fields' => array(
-      'field_reunion_session_ref' => 'left',
-      'alumni_reunion_agenda_item_date' => 'left',
-      'title' => 'left',
-      'field_link_single' => 'left',
-      'field_body' => 'left',
       'field_reunion_group_page_ref' => 'left',
-      'field_cost' => 'left',
-      'current_reunion_block' => 'right',
-      'group_wrapper_related' => 'right',
+      'related_title' => 'right',
+      'alumni_reunion_agenda_item_date' => 'left',
       'field_related_faculty' => 'right',
-      'conditional_stanford_block' => 'right',
+      'group_wrapper_title_location' => 'left',
       'field_alumni_ref' => 'right',
       'field_related_idea_story' => 'right',
+      'title' => 'left',
+      'field_link_single' => 'left',
       'field_related_other_unlimited' => 'right',
+      'field_body' => 'left',
       'field_link_unlimited' => 'right',
+      'current_reunion_block' => 'right',
+      'group_wrapper_related' => 'right',
+      'conditional_stanford_block' => 'right',
     ),
     'classes' => array(),
     'wrappers' => array(
