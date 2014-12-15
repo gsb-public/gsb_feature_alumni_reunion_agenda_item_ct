@@ -44,7 +44,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, 
       '#type' => 'container',
       '#attributes' => array(
         'class' => array(
-          'current-reunion-block',
+          'pane-bundle-links current-reunion-block',
          ),
        ),
        '#children' => $content,
@@ -63,7 +63,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, 
         '#type' => 'container',
         '#attributes' => array(
            'class' => array(
-            'conditional-stanford-block',
+            'pane-bundle-links conditional-stanford-block',
            ),
          ),
        '#children' => $content,
