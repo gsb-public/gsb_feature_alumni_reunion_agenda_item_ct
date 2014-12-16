@@ -61,6 +61,57 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_alumni_session_ref'
+  $field_instances['node-alumni_reunion_agenda_item-field_alumni_session_ref'] = array(
+    'bundle' => 'alumni_reunion_agenda_item',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'conditions' => array(),
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_alumni_session_ref',
+    'label' => 'Alumni Reunion Session',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 1,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Exported field_instance: 'node-alumni_reunion_agenda_item-field_body'
   $field_instances['node-alumni_reunion_agenda_item-field_body'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
@@ -757,58 +808,6 @@ Add this event separately during the reunion registration process',
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 2,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_reunion_session_ref'
-  $field_instances['node-alumni_reunion_agenda_item-field_reunion_session_ref'] = array(
-    'bundle' => 'alumni_reunion_agenda_item',
-    'custom_add_another' => '',
-    'custom_remove' => '',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'conditions' => array(),
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_reunion_session_ref',
-    'label' => 'Alumni Reunion Session',
-    'required' => 0,
-    'settings' => array(
-      'custom_add_another' => '',
-      'custom_remove' => '',
-      'use_hierarchical_select_lite' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 1,
     ),
     'workbench_access_field' => 0,
   );

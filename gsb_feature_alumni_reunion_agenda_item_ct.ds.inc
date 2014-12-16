@@ -67,7 +67,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'left' => array(
-        0 => 'field_reunion_session_ref',
+        0 => 'field_alumni_session_ref',
         1 => 'field_reunion_group_page_ref',
         2 => 'field_event_date',
         3 => 'field_link_single',
@@ -88,7 +88,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_layout_settings_info() {
       ),
     ),
     'fields' => array(
-      'field_reunion_session_ref' => 'left',
+      'field_alumni_session_ref' => 'left',
       'field_reunion_group_page_ref' => 'left',
       'field_event_date' => 'left',
       'field_link_single' => 'left',
