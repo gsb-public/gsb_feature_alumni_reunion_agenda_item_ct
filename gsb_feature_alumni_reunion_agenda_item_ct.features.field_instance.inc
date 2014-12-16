@@ -791,7 +791,7 @@ Add this event separately during the reunion registration process',
     'entity_type' => 'node',
     'field_name' => 'field_reunion_session_ref',
     'label' => 'Alumni Reunion Session',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'custom_add_another' => '',
       'custom_remove' => '',
