@@ -110,7 +110,7 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
   else {
     // DB Query to get list of nids for all group pages with a matching session id.
     $results = db_query(
-      "Select entity_id from {field_data_field_reunion_session_ref} where field_reunion_session_ref_target_id = " . $node->field_reunion_session_ref['und'][0]['target_id'] . " AND bundle = 'alumni_reunion_group_page'"
+      "Select entity_id from {field_data_field_reunion_session_ref} where field_reunion_session_ref_target_id = " . $node->field_alumni_session_ref['und'][0]['target_id'] . " AND bundle = 'alumni_reunion_group_page'"
     );
     foreach ($results as $record) {
       $group_nids[] = $record->entity_id;
@@ -118,7 +118,7 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
   }
 
   // Get the session title and clean it for urls.
-  $session_nid = $node->field_reunion_session_ref['und'][0]['target_id'];
+  $session_nid = $node->field_alumni_session_ref['und'][0]['target_id'];
   $session_node = node_load($session_nid);
   $path = pathauto_cleanstring($session_node->title);
 
