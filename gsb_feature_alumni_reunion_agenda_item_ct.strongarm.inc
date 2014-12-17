@@ -98,13 +98,13 @@ function gsb_feature_alumni_reunion_agenda_item_ct_strongarm() {
       'display' => array(
         'current_reunion_block' => array(
           'default' => array(
-            'weight' => '8',
+            'weight' => '7',
             'visible' => TRUE,
           ),
         ),
         'conditional_stanford_block' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '9',
             'visible' => TRUE,
           ),
         ),

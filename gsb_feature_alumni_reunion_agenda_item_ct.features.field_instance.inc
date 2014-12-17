@@ -20,14 +20,15 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'conditions' => array(),
-          'link' => FALSE,
+          'links' => 0,
+          'view_mode' => 'people_fpp',
         ),
-        'type' => 'entityreference_label',
-        'weight' => 16,
+        'type' => 'entityreference_entity_view',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -71,14 +72,10 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'conditions' => array(),
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 0,
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -122,13 +119,13 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
           'conditions' => array(),
         ),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -222,7 +219,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
           'conditions' => array(),
         ),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -313,19 +310,13 @@ Free',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'date',
+        'label' => 'hidden',
+        'module' => 'gsb_feature_alumni_reunion_agenda_item_ct',
         'settings' => array(
           'conditions' => array(),
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'show_repeat_rule' => 'show',
         ),
-        'type' => 'date_default',
-        'weight' => 2,
+        'type' => 'gsb_feature_alumni_reunion_agenda_item_ct_date_formatter',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -378,7 +369,7 @@ Free',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'link',
         'settings' => array(
           'conditions' => array(),
@@ -448,13 +439,13 @@ Free',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'link',
         'settings' => array(
           'conditions' => array(),
         ),
         'type' => 'link_default',
-        'weight' => 19,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -518,14 +509,15 @@ Free',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'conditions' => array(),
-          'link' => FALSE,
+          'links' => 0,
+          'view_mode' => 'people_fpp',
         ),
-        'type' => 'entityreference_label',
-        'weight' => 15,
+        'type' => 'entityreference_entity_view',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -575,7 +567,7 @@ Free',
           'conditions' => array(),
         ),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -670,7 +662,7 @@ Add this event separately during the reunion registration process',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'conditions' => array(),
@@ -678,7 +670,7 @@ Add this event separately during the reunion registration process',
           'view_mode' => 'idea_story_related',
         ),
         'type' => 'entityreference_entity_view',
-        'weight' => 17,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -722,14 +714,14 @@ Add this event separately during the reunion registration process',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'gsb_field_formatter',
         'settings' => array(
           'conditions' => array(),
           'view_mode' => 'full',
         ),
         'type' => 'gsb_field_formatter_related_items_field_collection',
-        'weight' => 18,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -770,14 +762,14 @@ Add this event separately during the reunion registration process',
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'conditions' => array(),
-          'link' => FALSE,
+          'link' => 0,
         ),
         'type' => 'entityreference_label',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -827,12 +819,9 @@ Add this event separately during the reunion registration process',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
-        'settings' => array(
-          'conditions' => array(),
-        ),
-        'type' => 'list_default',
-        'weight' => 7,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
