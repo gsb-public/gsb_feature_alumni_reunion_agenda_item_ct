@@ -19,6 +19,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'entityreference',
@@ -71,6 +77,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -118,6 +130,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -212,6 +230,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -310,6 +334,21 @@ Sold Out',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'conditions' => array(),
+          'format_type' => 'time_only',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_repeat_rule' => 'show',
+        ),
+        'type' => 'date_default',
+        'weight' => 1,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'gsb_feature_alumni_reunion_agenda_item_ct',
@@ -369,6 +408,15 @@ Sold Out',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'link_title_plain',
+        'weight' => 5,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'link',
@@ -439,6 +487,12 @@ Sold Out',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'link',
@@ -509,6 +563,12 @@ Sold Out',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'entityreference',
@@ -561,6 +621,12 @@ Sold Out',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -658,6 +724,12 @@ Not required',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'entityreference',
@@ -710,6 +782,12 @@ Not required',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'gsb_field_formatter',
@@ -758,6 +836,16 @@ Not required',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'conditions' => array(),
+          'link' => 0,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'entityreference',
@@ -814,6 +902,12 @@ Not required',
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),

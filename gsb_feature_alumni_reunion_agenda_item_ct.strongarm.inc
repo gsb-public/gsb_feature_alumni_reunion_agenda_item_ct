@@ -79,6 +79,9 @@ function gsb_feature_alumni_reunion_agenda_item_ct_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'alumni_reunion_agenda_list' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -101,11 +104,19 @@ function gsb_feature_alumni_reunion_agenda_item_ct_strongarm() {
             'weight' => '7',
             'visible' => TRUE,
           ),
+          'alumni_reunion_agenda_list' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
         ),
         'conditional_stanford_block' => array(
           'default' => array(
             'weight' => '9',
             'visible' => TRUE,
+          ),
+          'alumni_reunion_agenda_list' => array(
+            'weight' => '19',
+            'visible' => FALSE,
           ),
         ),
       ),
