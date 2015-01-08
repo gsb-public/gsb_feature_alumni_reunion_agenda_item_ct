@@ -281,11 +281,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
       'active' => 1,
       'module' => 'select_or_other',
       'settings' => array(
-        'available_options' => 'Included in the Thursday program
-Included in the Friday program
-Included in the Saturday program
-Included in the Sunday program
-Free',
+        'available_options' => 'Included in Thursday\'s program
+Included in Friday\'s program
+Included in Saturday\'s program
+Included in Sunday\'s program
+No charge for this event
+Sold Out',
         'available_options_php' => '',
         'markup_available_options_php' => '&lt;none&gt;',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
@@ -629,14 +630,10 @@ Free',
       'active' => 1,
       'module' => 'select_or_other',
       'settings' => array(
-        'available_options' => 'SOLD OUT: Registration is closed
-Online registration is closed. Register in person.
-No registration required
-Included when you register for the Thursday reunion program
-Included when you register for the Friday reunion program
-Included when you register for the Saturday reunion program
-Included when you register for the Sunday reunion program
-Add this event separately during the reunion registration process',
+        'available_options' => 'Registration is closed
+Online registration is closed: Register at the event
+Required. Sign up during the reunion registration process
+Not required',
         'available_options_php' => '',
         'markup_available_options_php' => '&lt;none&gt;',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
