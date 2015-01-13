@@ -110,7 +110,7 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
   else {
     // DB Query to get list of nids for all group pages with a matching session id.
     $results = db_query(
-      "Select entity_id from {field_data_field_alumni_session_ref} where field_alumni_session_ref_target_id = " . $node->field_alumni_session_ref['und'][0]['target_id'] . " AND bundle = 'alumni_reunion_group_page'"
+      "Select entity_id from {field_data_field_reunion_session_ref} where field_reunion_session_ref_target_id = " . $node->field_alumni_session_ref['und'][0]['target_id'] . " AND bundle = 'alumni_reunion_group_page'"
     );
     foreach ($results as $record) {
       $group_nids[] = $record->entity_id;
@@ -196,4 +196,31 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_formatter_view($entity_
     );
   }
   return $elements;
+}
+
+/**
+ * Implements hook_ds_pre_render_alter().
+ */
+function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_render_array, $context, &$vars) {
+
+  if ($context['view_mode'] == 'alumni_reunion_agenda_list') {
+
+    $group_nid = arg(1);
+    $group_alias = drupal_lookup_path('alias', "node/" . $group_nid);
+    $node = node_load($group_nid);
+
+    $session_nid = $node->field_reunion_session_ref['und'][0]['target_id'];
+    $session_alias = drupal_lookup_path('alias', "node/" . $session_nid);
+    $session_alias = explode('/', $session_alias);
+
+    $alias = $group_alias . '/' . $session_alias[1];
+    foreach($layout_render_array['ds_content'] as $field_index => $value) {
+      if ($value['#field_name'] == 'title') {
+        $layout_render_array['ds_content'][$field_index][0]['#markup'] = str_replace('alumni/reunions', $alias, $layout_render_array['ds_content'][$field_index][0]['#markup']);
+        break;
+      }
+    }
+
+  }
+
 }
