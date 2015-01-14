@@ -203,24 +203,39 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_formatter_view($entity_
  */
 function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_render_array, $context, &$vars) {
 
-  if ($context['view_mode'] == 'alumni_reunion_agenda_list') {
+  if ($context['bundle'] == 'alumni_reunion_agenda_item') {
 
-    $group_nid = arg(1);
-    $group_alias = drupal_lookup_path('alias', "node/" . $group_nid);
-    $node = node_load($group_nid);
-
-    $session_nid = $node->field_reunion_session_ref['und'][0]['target_id'];
-    $session_alias = drupal_lookup_path('alias', "node/" . $session_nid);
-    $session_alias = explode('/', $session_alias);
-
-    $alias = $group_alias . '/' . $session_alias[1];
-    foreach($layout_render_array['ds_content'] as $field_index => $value) {
-      if ($value['#field_name'] == 'title') {
-        $layout_render_array['ds_content'][$field_index][0]['#markup'] = str_replace('alumni/reunions', $alias, $layout_render_array['ds_content'][$field_index][0]['#markup']);
+    // Hide the group label if there is more than one group.
+    foreach($layout_render_array['ds_content'] as $key => $field_info) {
+      if ($field_info['#field_name'] == 'field_reunion_group_page_ref' && count($field_info['#items']) > 1) {
+        $layout_render_array['ds_content'][$key]['#access'] = FALSE;
         break;
       }
     }
 
-  }
+    if ($context['view_mode'] == 'alumni_reunion_agenda_list') {
 
+      // Set the url path to be specific to the current group.
+
+      // Get the alias of the group.
+      $group_nid = arg(1);
+      $group_alias = drupal_lookup_path('alias', "node/" . $group_nid);
+      $node = node_load($group_nid);
+
+      // Get the alias of the session.
+      $session_nid = $node->field_reunion_session_ref['und'][0]['target_id'];
+      $session_alias = drupal_lookup_path('alias', "node/" . $session_nid);
+      $session_alias = explode('/', $session_alias);
+
+      // Combine them and replace the path to alumni/reunions with the correct
+      // path.
+      $alias = $group_alias . '/' . $session_alias[1];
+      foreach($layout_render_array['ds_content'] as $field_index => $field_info) {
+        if ($field_info['#field_name'] == 'title') {
+          $layout_render_array['ds_content'][$field_index][0]['#markup'] = str_replace('alumni/reunions', $alias, $layout_render_array['ds_content'][$field_index][0]['#markup']);
+          break;
+        }
+      }
+    }
+  }
 }
