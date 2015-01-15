@@ -221,9 +221,10 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
       $group_nid = arg(1);
       $group_alias = drupal_lookup_path('alias', "node/" . $group_nid);
       $node = node_load($group_nid);
+      $language = $node->language;
 
       // Get the alias of the session.
-      $session_nid = $node->field_reunion_session_ref['und'][0]['target_id'];
+      $session_nid = $node->field_reunion_session_ref[$language][0]['target_id'];
       $session_alias = drupal_lookup_path('alias', "node/" . $session_nid);
       $session_alias = explode('/', $session_alias);
 
@@ -232,7 +233,10 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
       $alias = $group_alias . '/' . $session_alias[1];
       foreach($layout_render_array['ds_content'] as $field_index => $field_info) {
         if ($field_info['#field_name'] == 'title') {
-          $layout_render_array['ds_content'][$field_index][0]['#markup'] = str_replace('alumni/reunions', $alias, $layout_render_array['ds_content'][$field_index][0]['#markup']);
+          $pos = strpos($layout_render_array['ds_content'][$field_index][0]['#markup'], $alias);
+          if ($pos === false) {
+            $layout_render_array['ds_content'][$field_index][0]['#markup'] = str_replace('alumni/reunions', $alias, $layout_render_array['ds_content'][$field_index][0]['#markup']);
+          }
           break;
         }
       }
