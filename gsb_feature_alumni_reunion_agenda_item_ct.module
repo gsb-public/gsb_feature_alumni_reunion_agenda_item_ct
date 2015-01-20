@@ -206,10 +206,28 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
   if ($context['bundle'] == 'alumni_reunion_agenda_item') {
 
     // Hide the group label if there is more than one group.
-    foreach($layout_render_array['ds_content'] as $key => $field_info) {
-      if ($field_info['#field_name'] == 'field_reunion_group_page_ref' && count($field_info['#items']) > 1) {
-        $layout_render_array['ds_content'][$key]['#access'] = FALSE;
-        break;
+    if (isset($layout_render_array['left'])) {
+      foreach ($layout_render_array['left'] as $key => $field_info) {
+        if ($field_info['#field_name'] == 'field_reunion_group_page_ref' && count($field_info['#items']) > 1) {
+          $layout_render_array['left'][$key]['#access'] = FALSE;
+          break;
+        }
+      }
+    }
+    elseif (isset($layout_render_array['right'])) {
+      foreach ($layout_render_array['right'] as $key => $field_info) {
+        if ($field_info['#field_name'] == 'field_reunion_group_page_ref' && count($field_info['#items']) > 1) {
+          $layout_render_array['right'][$key]['#access'] = FALSE;
+          break;
+        }
+      }
+    }
+    elseif (isset($layout_render_array['ds_content'])) {
+      foreach ($layout_render_array['ds_content'] as $key => $field_info) {
+        if ($field_info['#field_name'] == 'field_reunion_group_page_ref' && count($field_info['#items']) > 1) {
+          $layout_render_array['ds_content'][$key]['#access'] = FALSE;
+          break;
+        }
       }
     }
 
