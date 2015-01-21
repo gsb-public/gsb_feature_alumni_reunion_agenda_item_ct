@@ -249,12 +249,15 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
       // Combine them and replace the path to alumni/reunions with the correct
       // path.
       $alias = $group_alias . '/' . $session_alias[1];
+
+      // Include the pathauto library.
+      module_load_include('inc', 'pathauto');
+      // Clean the value.
+      $title_alias = pathauto_cleanstring($context['entity']->title);
+
       foreach($layout_render_array['ds_content'] as $field_index => $field_info) {
         if ($field_info['#field_name'] == 'title') {
-          $pos = strpos($layout_render_array['ds_content'][$field_index][0]['#markup'], $alias);
-          if ($pos === false) {
-            $layout_render_array['ds_content'][$field_index][0]['#markup'] = str_replace('alumni/reunions', $alias, $layout_render_array['ds_content'][$field_index][0]['#markup']);
-          }
+          $layout_render_array['ds_content'][$field_index][0]['#markup'] = '<h2>' . l($context['entity']->title, $alias . '/' . $title_alias) . '</h2>';
           break;
         }
       }
