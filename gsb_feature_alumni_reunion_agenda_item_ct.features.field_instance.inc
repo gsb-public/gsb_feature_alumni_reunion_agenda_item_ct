@@ -351,11 +351,11 @@ Sold Out',
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'gsb_feature_alumni_reunion_agenda_item_ct',
+        'module' => 'gsb_field_formatter',
         'settings' => array(
           'conditions' => array(),
         ),
-        'type' => 'gsb_feature_alumni_reunion_agenda_item_ct_date_formatter',
+        'type' => 'gsb_field_formatter_split_date_format',
         'weight' => 1,
       ),
       'teaser' => array(

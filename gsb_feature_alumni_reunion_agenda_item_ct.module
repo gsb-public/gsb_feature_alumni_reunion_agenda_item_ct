@@ -143,62 +143,6 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
 }
 
 /**
- * Implements hook_field_formatter_info().
- */
-function gsb_feature_alumni_reunion_agenda_item_ct_field_formatter_info() {
-  return array(
-    'gsb_feature_alumni_reunion_agenda_item_ct_date_formatter' => array(
-      'label' => t('Custom alumni date formatter'),
-      'field types' => array('date', 'datestamp', 'datetime'),
-      'multiple values' => FIELD_BEHAVIOR_DEFAULT,
-    ),
-  );
-}
-
-/**
- * Implements hook_field_formatter_view(). This code just passes straight
- */
-function gsb_feature_alumni_reunion_agenda_item_ct_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
-  $elements = array();
-  foreach ($items as $delta => $item) {
-    $db_format = date_type_format($field['type']);
-    $date = new DateObject($item['value'], $item['timezone_db'], $db_format);
-    $timezone = isset($item['timezone']) ? $item['timezone'] : '';
-    $timezone = timezone_open(date_get_timezone($field['settings']['tz_handling'], $timezone));
-    date_timezone_set($date, $timezone);
-
-    $month_day_year = date_format_date($date, 'custom', 'l, F j, Y');
-    $time = date_format_date($date, 'custom', 'g:ia');
-
-    if (isset($item['value2'])) {
-      $date2 = new DateObject($item['value2'], $item['timezone_db'], $db_format);
-      date_timezone_set($date2, $timezone);
-      if (date_format_date($date, 'custom', 'Y-m-d') == date_format_date($date2, 'custom', 'Y-m-d')) {
-        // Same date with a time range
-        $time2 = date_format_date($date2, 'custom', 'i') !== '00' ? date_format_date($date2, 'custom', 'g:ia') : date_format_date($date2, 'custom', 'g:ia');
-        if ($time2 != $time) {
-          $time .= ' - ' . $time2;
-        }
-        $output = '<div class="alumni-reunion-agenda-item-date"><div class="date">' . $month_day_year . '</div><div class="time">' . $time . '</div></div>';
-      }
-      else {
-        // Range of dates
-        $time2 = date_format_date($date2, 'custom', 'i') !== '00' ? date_format_date($date2, 'custom', 'g:ia') : date_format_date($date2, 'custom', 'g:ia');
-        $month_day_year2 = date_format_date($date2, 'custom', 'l, F j, Y');
-        $output = '<div class="alumni-reunion-agenda-item-date"><div class="date">' . $month_day_year . ' - ' . $month_day_year2 . '</div><div class="time">' . $time . ' - ' . $time2 . '</div></div>';
-      }
-    }
-    else {
-      $output = '<div class="alumni-reunion-agenda-item-date"><div class="date">' . $month_day_year . '</div><div class="time">' . $time . '</div></div>';
-    }
-    $elements[$delta] = array(
-      '#markup' => $output,
-    );
-  }
-  return $elements;
-}
-
-/**
  * Implements hook_ds_pre_render_alter().
  */
 function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_render_array, $context, &$vars) {
