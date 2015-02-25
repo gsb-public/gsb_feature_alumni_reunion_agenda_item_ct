@@ -384,7 +384,7 @@ Sold Out',
       'module' => 'date',
       'settings' => array(
         'display_all_day' => 1,
-        'increment' => 15,
+        'increment' => 5,
         'input_format' => 'M j Y - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'above',
