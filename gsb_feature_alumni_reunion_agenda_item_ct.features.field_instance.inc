@@ -439,6 +439,7 @@ Sold Out',
     'label' => 'Location',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_class' => 0,
@@ -515,6 +516,7 @@ Sold Out',
     'label' => 'Link',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_class' => 0,
