@@ -123,13 +123,22 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
   $path = pathauto_cleanstring($session_node->title);
 
   // Clean the node title.
+  //$path .= '/' . pathauto_cleanstring($node->title);
+  // Get aliases and recreate the alias
+  $alias_pattern = str_replace("[node:title]", pathauto_cleanstring($node->title), variable_get('pathauto_node_alumni_reunion_agenda_item_pattern'));
+  $result = db_query("SELECT COUNT(*) as 'alias_count' FROM {url_alias} WHERE alias LIKE 'alumni/reunions/" . pathauto_cleanstring($node->title) . "%'");
+  $record = $result->fetchObject();
+
   $path .= '/' . pathauto_cleanstring($node->title);
+  if ($record->alias_count > 1) {
+    $alias_count = $record->alias_count - 2;
+    $path .= '-' . $alias_count;
+  }
 
   // Loop through the group nodes and create aliases.
   foreach ($group_nids as $group_nid) {
     // Get the alias of the group page.
     $alias_path = drupal_get_path_alias('node/' . $group_nid) . '/' . $path;
-
     // Check to see if a path alias exists, if not then save it.
     $path_info = path_load(array('alias' => $alias_path));
     if (empty($path_info)) {
@@ -178,7 +187,6 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
     if ($context['view_mode'] == 'alumni_reunion_agenda_list') {
 
       // Set the url path to be specific to the current group.
-
       // Get the alias of the group.
       $group_nid = arg(1);
       $group_alias = drupal_lookup_path('alias', "node/" . $group_nid);
@@ -197,7 +205,10 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
       // Include the pathauto library.
       module_load_include('inc', 'pathauto');
       // Clean the value.
-      $title_alias = pathauto_cleanstring($context['entity']->title);
+      //$title_alias = pathauto_cleanstring($context['entity']->title);
+      $title_alias = drupal_get_path_alias('node/'.$context['entity']->nid);
+      $url_str = explode('/', $title_alias);
+      $title_alias = end($url_str);
 
       foreach($layout_render_array['ds_content'] as $field_index => $field_info) {
         if ($field_info['#field_name'] == 'title') {
