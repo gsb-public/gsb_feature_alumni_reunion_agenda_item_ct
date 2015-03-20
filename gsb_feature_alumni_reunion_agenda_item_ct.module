@@ -131,7 +131,9 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
   $alias_exists = path_load(array('alias' => 'alumni/reunions/' . pathauto_cleanstring($node->title)));
 
   if (!empty($alias_exists)) {
-    $path .= '-' . $node->nid;
+    if ($alias_exists['source'] != 'node/'.$node->nid) {
+      $path .= '-' . $node->nid;
+    }
   }
 
   // Loop through the group nodes and create aliases.
