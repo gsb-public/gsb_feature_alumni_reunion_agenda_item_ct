@@ -76,7 +76,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, 
  * Implements hook_node_insert().
  */
 function gsb_feature_alumni_reunion_agenda_item_ct_node_insert($node) {
-  if($node->is_new) {
+  if($node->workbench_moderation_state_current == 'draft' && $node->is_new) {
     _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
   }
 }
@@ -85,7 +85,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_insert($node) {
  * Implements hook_node_update().
  */
 function gsb_feature_alumni_reunion_agenda_item_ct_node_update($node) {
-  if(!$node->is_new) {
+  if($node->workbench_moderation['current']->state == 'published' && !$node->is_new) {
     _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
   }
 }
@@ -128,13 +128,6 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
 
   // Clean the node title.
   $path .= '/' . pathauto_cleanstring($node->title);
-  $alias_exists = path_load(array('alias' => 'alumni/reunions/' . pathauto_cleanstring($node->title)));
-
-  if (!empty($alias_exists)) {
-    if ($alias_exists['source'] != 'node/'.$node->nid) {
-      $path .= '-' . $node->nid;
-    }
-  }
 
   // Loop through the group nodes and create aliases.
   foreach ($group_nids as $group_nid) {
@@ -148,6 +141,16 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
         'alias'    => $alias_path,
       );
       path_save($edit);
+    }
+    else {
+      if ($path_info['source'] != 'node/' . $node->nid) {
+        $alias_path .= '-' . $node->nid;
+        $edit = array(
+          'source'   => 'node/' . $node->nid,
+          'alias'    => $alias_path,
+        );
+        path_save($edit);
+      }
     }
   }
 }
