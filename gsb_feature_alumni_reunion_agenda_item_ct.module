@@ -143,13 +143,16 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
       path_save($edit);
     }
     else {
+      $alias_path .= '-' . $node->nid;
       if ($path_info['source'] != 'node/' . $node->nid) {
-        $alias_path .= '-' . $node->nid;
-        $edit = array(
-          'source'   => 'node/' . $node->nid,
-          'alias'    => $alias_path,
-        );
-        path_save($edit);
+        $path_info = path_load(array('alias' => $alias_path));
+        if (empty($path_info)) {
+          $edit = array(
+            'source'   => 'node/' . $node->nid,
+            'alias'    => $alias_path,
+          );
+          path_save($edit);
+        }
       }
     }
   }
