@@ -133,7 +133,7 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
     // Check to see if a path alias exists, if not then save it.
     $path_info = path_load(array('alias' => $alias_path));
     if (empty($path_info) || $path_info->source != 'node/' . $node->nid) {
-      pathauto_alias_uniquify($alias_path, 'node/' . $node->nid, $node->$language);
+      pathauto_alias_uniquify($alias_path, 'node/' . $node->nid, $node->language);
       $edit = array(
         'source'   => 'node/' . $node->nid,
         'alias'    => $alias_path,
