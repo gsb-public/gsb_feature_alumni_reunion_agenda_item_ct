@@ -199,7 +199,8 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
       module_load_include('inc', 'pathauto');
       // Get url alias for the node
       $alias_info = path_load(array('source' => 'node/' . $context['entity']->nid));
-      $title_alias = array_pop(explode('/', $alias_info['alias']));
+      $title_info = explode('/', $alias_info['alias']);
+      $title_alias = array_pop($title_info);
 
       foreach($layout_render_array['ds_content'] as $field_index => $field_info) {
         if ($field_info['#field_name'] == 'title') {
