@@ -118,7 +118,7 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
   }
 
   // Get the session title and clean it for urls.
-  $session_nid = $node->field_alumni_session_ref['und'][0]['target_id'];
+  $session_nid = $node->field_alumni_session_ref[$node->language][0]['target_id'];
   $session_node = node_load($session_nid);
   $path = pathauto_cleanstring($session_node->title);
 
@@ -129,17 +129,7 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
   foreach ($group_nids as $group_nid) {
     // Get the alias of the group page.
     $alias_path = drupal_get_path_alias('node/' . $group_nid) . '/' . $path;
-
-    // Check to see if a path alias exists, if not then save it.
-    $path_info = path_load(array('source' => 'node/' . $node->nid));
-    if (empty($path_info) || $path_info['source'] != 'node/' . $node->nid) {
-      pathauto_alias_uniquify($alias_path, 'node/' . $node->nid, $node->language);
-      $edit = array(
-        'source'   => 'node/' . $node->nid,
-        'alias'    => $alias_path,
-      );
-      path_save($edit);
-    }
+    gsb_feature_alumni_reunion_agenda_item_ct_create_alias($node, $alias_path);
   }
 }
 
@@ -195,19 +185,64 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_pre_render_alter(&$layout_
       // path.
       $alias = $group_alias . '/' . $session_alias[1];
 
-      // Include the pathauto library.
-      module_load_include('inc', 'pathauto');
-      // Get url alias for the node
-      $alias_info = path_load(array('source' => 'node/' . $context['entity']->nid));
-      $title_info = explode('/', $alias_info['alias']);
-      $title_alias = array_pop($title_info);
+      $query = db_select('url_alias', 'ua');
+      $query->fields('ua', array('alias'));
+      $query->condition('ua.alias', $alias . '/%', 'LIKE');
+      $query->condition('ua.source', 'node/' . $context['entity']->nid);
+      $full_alias = $query->execute()->fetchField();
 
       foreach($layout_render_array['ds_content'] as $field_index => $field_info) {
         if ($field_info['#field_name'] == 'title') {
-          $layout_render_array['ds_content'][$field_index][0]['#markup'] = '<h2>' . l($context['entity']->title, $alias . '/' . $title_alias) . '</h2>';
+          $layout_render_array['ds_content'][$field_index][0]['#markup'] = '<h2>' . l($context['entity']->title, $full_alias) . '</h2>';
           break;
         }
       }
     }
+  }
+}
+
+/**
+ * Create the necessary aliases for this agenda item
+ */
+function gsb_feature_alumni_reunion_agenda_item_ct_create_alias($node, $alias_path) {
+  // Check to see if a path alias exists, if not then save it.
+  $unique_alias_path = $alias_path;
+  pathauto_alias_uniquify($unique_alias_path, 'node/' . $node->nid, $node->language);
+
+  if ($unique_alias_path !== $alias_path) {
+
+    $path_info = path_load(array('source' => 'node/' . $node->nid, 'alias' => $alias_path));
+    if (!empty($path_info)) {
+      return;
+    }
+
+    $unique_alias_path_array = explode('-', $unique_alias_path);
+    $unique_index = array_pop($unique_alias_path_array);
+
+    $found = FALSE;
+    for ($index = -1; $index < $unique_index; $index++) {
+      $path_index = $index + 1;
+      $path_info = path_load(array('source' => 'node/' . $node->nid, 'alias' => $alias_path . '-' . $path_index));
+      if (!empty($path_info)) {
+        $found = TRUE;
+        break;
+      }
+    }
+    if (!$found) {
+      $edit = array(
+        'source' => 'node/' . $node->nid,
+        'alias' => $unique_alias_path,
+      );
+      path_save($edit);
+    }
+  }
+  else {
+    $path_info = path_load(array('source' => 'node/' . $node->nid, 'alias' => $alias_path));
+    $edit = array(
+      'source' => 'node/' . $node->nid,
+      'alias' => $alias_path,
+      'pid' => !empty($path_info) ? $path_info['pid'] : FALSE,
+    );
+    path_save($edit);
   }
 }
