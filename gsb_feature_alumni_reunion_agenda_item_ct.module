@@ -45,9 +45,9 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, 
       '#attributes' => array(
         'class' => array(
           'pane-bundle-links current-reunion-block',
-         ),
-       ),
-       '#children' => $content,
+        ),
+      ),
+      '#children' => $content,
     );
   }
 
@@ -62,11 +62,11 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, 
       $node->content['conditional_stanford_block'] = array(
         '#type' => 'container',
         '#attributes' => array(
-           'class' => array(
+          'class' => array(
             'pane-bundle-links conditional-stanford-block',
-           ),
-         ),
-       '#children' => $content,
+          ),
+        ),
+        '#children' => $content,
       );
     }
   }
@@ -75,15 +75,19 @@ function gsb_feature_alumni_reunion_agenda_item_ct_node_view($node, $view_mode, 
 /**
  * Implements hook_node_insert().
  */
-function gsb_feature_alumni_reunion_agenda_item_ct_node_insert($node) {
-  _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
+function gsb_feature_alumni_reunion_agenda_item_ct_entity_insert($node, $entity_type) {
+  if ($entity_type == 'node') {
+    _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
+  }
 }
 
 /**
  * Implements hook_node_update().
  */
-function gsb_feature_alumni_reunion_agenda_item_ct_node_update($node) {
-  _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
+function gsb_feature_alumni_reunion_agenda_item_ct_entity_update($node, $entity_type) {
+  if ($entity_type == 'node') {
+    _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node);
+  }
 }
 
 /**
@@ -119,11 +123,21 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
 
   // Get the session title and clean it for urls.
   $session_nid = $node->field_alumni_session_ref['und'][0]['target_id'];
-  $session_node = node_load($session_nid);
-  $path = pathauto_cleanstring($session_node->title);
+  $session_path = path_load('node/' . $session_nid);
+  $session_path_array = explode('/', $session_path['alias']);
+  $path = array_pop($session_path_array);
 
   // Clean the node title.
-  $path .= '/' . pathauto_cleanstring($node->title);
+  if (!empty($node->path['alias'])) {
+    $alias_array = explode('/', $node->path['alias']);
+    $title = array_pop($alias_array);
+  }
+  else {
+    $node_path = path_load(array('source' => 'node/' . $node->nid));
+    $node_path_array = explode('/', $node_path['alias']);
+    $title = array_pop($node_path_array);
+  }
+  $path .= '/' . $title;
 
   // Loop through the group nodes and create aliases.
   foreach ($group_nids as $group_nid) {
@@ -131,15 +145,14 @@ function _gsb_feature_alumni_reunion_agenda_item_ct_node_save($node) {
     $alias_path = drupal_get_path_alias('node/' . $group_nid) . '/' . $path;
 
     // Check to see if a path alias exists, if not then save it.
-    $path_info = path_load(array('source' => 'node/' . $node->nid));
-    if (empty($path_info) || $path_info['source'] != 'node/' . $node->nid) {
-      pathauto_alias_uniquify($alias_path, 'node/' . $node->nid, $node->language);
-      $edit = array(
-        'source'   => 'node/' . $node->nid,
-        'alias'    => $alias_path,
-      );
-      path_save($edit);
-    }
+    $path_info = path_load(array('alias' => $alias_path));
+    $edit = array(
+      'source'   => 'node/' . $node->nid,
+      'alias'    => $alias_path,
+      'pid'      => (empty($path_info)) ? FALSE : $path_info['pid'],
+    );
+
+    path_save($edit);
   }
 }
 
