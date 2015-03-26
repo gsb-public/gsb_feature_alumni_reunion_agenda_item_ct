@@ -156,9 +156,8 @@ function gsb_feature_alumni_reunion_agenda_item_ct_strongarm() {
   $strongarm->name = 'node_options_alumni_reunion_agenda_item';
   $strongarm->value = array(
     0 => 'promote',
-    1 => 'force_pathauto',
-    2 => 'moderation',
-    3 => 'revision',
+    1 => 'moderation',
+    2 => 'revision',
   );
   $export['node_options_alumni_reunion_agenda_item'] = $strongarm;
 
@@ -180,7 +179,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_alumni_reunion_agenda_item_pattern';
-  $strongarm->value = '/alumni/reunions/[node:title]';
+  $strongarm->value = '';
   $export['pathauto_node_alumni_reunion_agenda_item_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
