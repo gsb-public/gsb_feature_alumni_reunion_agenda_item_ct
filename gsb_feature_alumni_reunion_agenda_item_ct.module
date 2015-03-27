@@ -246,3 +246,15 @@ function gsb_feature_alumni_reunion_agenda_item_ct_create_alias($node, $alias_pa
     path_save($edit);
   }
 }
+
+/**
+ * Implement hook_preprocess_node().
+ */
+function gsb_feature_alumni_reunion_agenda_item_ct_preprocess_node(&$variables) {
+  if ($variables['type'] == 'alumni_reunion_agenda_item') {
+    // Add javascript to add destination
+    if ($_GET['q'] == 'node/'. $variables['nid']) {
+      drupal_add_js(drupal_get_path('module', 'gsb_feature_alumni_reunion_agenda_item_ct') . '/js/add-destination.js');
+    }
+  }
+}
