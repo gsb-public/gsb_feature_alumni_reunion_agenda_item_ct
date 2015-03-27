@@ -1,7 +1,7 @@
 name = GSB Feature Alumni Reunion Agenda Item Content Type
 core = 7.x
 package = GSB
-version = 7.x-1.0-beta1
+version = 7.x-5.05
 project = gsb_feature_alumni_reunion_agenda_item_ct
 dependencies[] = ctools
 dependencies[] = date
@@ -18,7 +18,7 @@ dependencies[] = options
 dependencies[] = select_or_other
 dependencies[] = strongarm
 dependencies[] = text
-datestamp = 1418284186
+datestamp = 1427436365
 features[ctools][] = ds:ds:1
 features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1

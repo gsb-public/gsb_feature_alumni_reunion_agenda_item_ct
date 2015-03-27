@@ -414,7 +414,7 @@ Sold Out',
         'settings' => array(
           'conditions' => array(),
         ),
-        'type' => 'link_default',
+        'type' => 'link_title_plain',
         'weight' => 5,
       ),
       'default' => array(
