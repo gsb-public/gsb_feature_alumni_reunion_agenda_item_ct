@@ -808,7 +808,7 @@ Not required',
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_related_other_unlimited',
-    'label' => 'Publication',
+    'label' => 'Publication or Event',
     'required' => 0,
     'settings' => array(
       'custom_add_another' => '',
@@ -818,9 +818,7 @@ Not required',
     'widget' => array(
       'active' => 0,
       'module' => 'field_collection',
-      'settings' => array(
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
+      'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 25,
     ),
@@ -955,7 +953,7 @@ Not required',
   t('Link');
   t('Location');
   t('Pricing');
-  t('Publication');
+  t('Publication or Event');
   t('Registration');
   t('Stanford Event');
   t('Story or Announcement');
