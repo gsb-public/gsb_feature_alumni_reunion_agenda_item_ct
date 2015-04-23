@@ -808,7 +808,7 @@ Not required',
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_related_other_unlimited',
-    'label' => 'Publication or Event',
+    'label' => 'Existing Node Title',
     'required' => 0,
     'settings' => array(
       'custom_add_another' => '',
@@ -949,11 +949,11 @@ Not required',
   t('Body');
   t('Date/Time');
   t('Exclusive to');
+  t('Existing Node Title');
   t('Faculty');
   t('Link');
   t('Location');
   t('Pricing');
-  t('Publication or Event');
   t('Registration');
   t('Stanford Event');
   t('Story or Announcement');
