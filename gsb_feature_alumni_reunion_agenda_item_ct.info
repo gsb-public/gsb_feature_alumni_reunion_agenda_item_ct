@@ -39,6 +39,7 @@ features[field_instance][] = node-alumni_reunion_agenda_item-field_event_date
 features[field_instance][] = node-alumni_reunion_agenda_item-field_link_single
 features[field_instance][] = node-alumni_reunion_agenda_item-field_link_unlimited
 features[field_instance][] = node-alumni_reunion_agenda_item-field_person_fac_ref
+features[field_instance][] = node-alumni_reunion_agenda_item-field_person_ref_unlimited
 features[field_instance][] = node-alumni_reunion_agenda_item-field_registration
 features[field_instance][] = node-alumni_reunion_agenda_item-field_related_idea_story
 features[field_instance][] = node-alumni_reunion_agenda_item-field_related_other_unlimited
