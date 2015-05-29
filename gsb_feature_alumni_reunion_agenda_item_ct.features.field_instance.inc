@@ -10,64 +10,6 @@
 function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_alumni_ref'
-  $field_instances['node-alumni_reunion_agenda_item-field_alumni_ref'] = array(
-    'bundle' => 'alumni_reunion_agenda_item',
-    'custom_add_another' => '',
-    'custom_remove' => '',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'alumni_reunion_agenda_list' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
-      ),
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'conditions' => array(),
-          'links' => 0,
-          'view_mode' => 'people_fpp',
-        ),
-        'type' => 'entityreference_entity_view',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_alumni_ref',
-    'label' => 'Alumni',
-    'required' => 0,
-    'settings' => array(
-      'custom_add_another' => '',
-      'custom_remove' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'path' => '',
-        'size' => 120,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 21,
-    ),
-    'workbench_access_field' => 0,
-  );
-
   // Exported field_instance: 'node-alumni_reunion_agenda_item-field_alumni_session_ref'
   $field_instances['node-alumni_reunion_agenda_item-field_alumni_session_ref'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
@@ -1076,7 +1018,6 @@ Not required',
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Alumni');
   t('Alumni Reunion Session');
   t('Body');
   t('Date/Time');
