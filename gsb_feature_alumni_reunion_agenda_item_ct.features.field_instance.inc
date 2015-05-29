@@ -63,7 +63,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances
         'size' => 120,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 23,
+      'weight' => 21,
     ),
     'workbench_access_field' => 0,
   );
@@ -549,7 +549,7 @@ Sold Out',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'link_field',
-      'weight' => 26,
+      'weight' => 25,
     ),
     'workbench_access_field' => 0,
   );
@@ -608,6 +608,62 @@ Sold Out',
       ),
       'type' => 'entityreference_autocomplete',
       'weight' => 20,
+    ),
+    'workbench_access_field' => 0,
+  );
+
+  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_person_ref_unlimited'
+  $field_instances['node-alumni_reunion_agenda_item-field_person_ref_unlimited'] = array(
+    'bundle' => 'alumni_reunion_agenda_item',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'conditions' => array(),
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 18,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_person_ref_unlimited',
+    'label' => 'Faculty, Alumni, PhD Student, MSx Fellow, or Staff',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 22,
     ),
     'workbench_access_field' => 0,
   );
@@ -768,7 +824,7 @@ Not required',
         'size' => 120,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 24,
+      'weight' => 23,
     ),
     'workbench_access_field' => 0,
   );
@@ -820,7 +876,7 @@ Not required',
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 25,
+      'weight' => 24,
     ),
     'workbench_access_field' => 0,
   );
@@ -950,6 +1006,7 @@ Not required',
   t('Date/Time');
   t('Exclusive to');
   t('Faculty');
+  t('Faculty, Alumni, PhD Student, MSx Fellow, or Staff');
   t('Link');
   t('Location');
   t('Pricing');
