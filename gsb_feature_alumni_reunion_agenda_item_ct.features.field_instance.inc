@@ -399,6 +399,82 @@ Sold Out',
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_file_unlimited_public'
+  $field_instances['node-alumni_reunion_agenda_item-field_file_unlimited_public'] = array(
+    'bundle' => 'alumni_reunion_agenda_item',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'alumni_reunion_agenda_list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(
+          'conditions' => array(),
+        ),
+        'type' => 'file_default',
+        'weight' => 19,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_file_unlimited_public',
+    'label' => 'Files',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt',
+      'filefield_paths' => array(
+        'active_updating' => 0,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '',
+        ),
+        'replace_existing_files' => 0,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 10,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Exported field_instance: 'node-alumni_reunion_agenda_item-field_link_single'
   $field_instances['node-alumni_reunion_agenda_item-field_link_single'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
@@ -1007,6 +1083,7 @@ Not required',
   t('Exclusive to');
   t('Faculty');
   t('Faculty, Alumni, PhD Student, MSx Fellow, or Staff');
+  t('Files');
   t('Link');
   t('Location');
   t('Pricing');
