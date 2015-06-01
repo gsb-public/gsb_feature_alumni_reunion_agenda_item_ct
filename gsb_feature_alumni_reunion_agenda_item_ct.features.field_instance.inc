@@ -10,7 +10,8 @@
 function gsb_feature_alumni_reunion_agenda_item_ct_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_alumni_session_ref'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_alumni_session_ref'
   $field_instances['node-alumni_reunion_agenda_item-field_alumni_session_ref'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -341,7 +342,8 @@ Sold Out',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_file_unlimited_public'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_file_unlimited_public'
   $field_instances['node-alumni_reunion_agenda_item-field_file_unlimited_public'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -356,13 +358,13 @@ Sold Out',
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'file',
         'settings' => array(
           'conditions' => array(),
         ),
         'type' => 'file_default',
-        'weight' => 19,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -417,7 +419,8 @@ Sold Out',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_link_single'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_link_single'
   $field_instances['node-alumni_reunion_agenda_item-field_link_single'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -495,7 +498,8 @@ Sold Out',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_link_unlimited'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_link_unlimited'
   $field_instances['node-alumni_reunion_agenda_item-field_link_unlimited'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -572,7 +576,8 @@ Sold Out',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_person_fac_ref'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_person_fac_ref'
   $field_instances['node-alumni_reunion_agenda_item-field_person_fac_ref'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -589,13 +594,8 @@ Sold Out',
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'conditions' => array(),
-          'links' => 0,
-          'view_mode' => 'people_fpp',
-        ),
-        'type' => 'entityreference_entity_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -630,7 +630,8 @@ Sold Out',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_person_ref_unlimited'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_person_ref_unlimited'
   $field_instances['node-alumni_reunion_agenda_item-field_person_ref_unlimited'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -646,14 +647,15 @@ Sold Out',
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'conditions' => array(),
-          'link' => FALSE,
+          'links' => 0,
+          'view_mode' => 'people_fpp',
         ),
-        'type' => 'entityreference_label',
-        'weight' => 18,
+        'type' => 'entityreference_entity_view',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -686,7 +688,8 @@ Sold Out',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_registration'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_registration'
   $field_instances['node-alumni_reunion_agenda_item-field_registration'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -789,7 +792,8 @@ Not required',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_related_idea_story'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_related_idea_story'
   $field_instances['node-alumni_reunion_agenda_item-field_related_idea_story'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -847,7 +851,8 @@ Not required',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_related_other_unlimited'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_related_other_unlimited'
   $field_instances['node-alumni_reunion_agenda_item-field_related_other_unlimited'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -899,7 +904,8 @@ Not required',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_reunion_group_page_ref'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_reunion_group_page_ref'
   $field_instances['node-alumni_reunion_agenda_item-field_reunion_group_page_ref'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -961,7 +967,8 @@ Not required',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_stanford_event'
+  // Exported field_instance:
+  // 'node-alumni_reunion_agenda_item-field_stanford_event'
   $field_instances['node-alumni_reunion_agenda_item-field_stanford_event'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
