@@ -117,19 +117,6 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
         'conditions' => array(),
       ),
     ),
-    'field_alumni_ref' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'ow' => TRUE,
-          'ow-el' => 'div',
-          'ow-cl' => '',
-          'ow-def-cl' => TRUE,
-          'ow-at' => '',
-          'ow-def-at' => FALSE,
-        ),
-      ),
-    ),
     'field_body' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -204,19 +191,6 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
         ),
       ),
     ),
-    'field_person_fac_ref' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'ow' => TRUE,
-          'ow-el' => 'div',
-          'ow-cl' => '',
-          'ow-def-cl' => TRUE,
-          'ow-at' => '',
-          'ow-def-at' => FALSE,
-        ),
-      ),
-    ),
     'field_registration' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -252,6 +226,32 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_field_settings_info() {
       ),
     ),
     'field_reunion_group_page_ref' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_file_unlimited_public' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => '',
+          'ow-def-cl' => TRUE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_person_ref_unlimited' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
@@ -319,43 +319,43 @@ function gsb_feature_alumni_reunion_agenda_item_ct_ds_layout_settings_info() {
   $ds_layout->layout = 'ds_2col';
   $ds_layout->settings = array(
     'regions' => array(
+      'left' => array(
+        0 => 'field_reunion_group_page_ref',
+        2 => 'field_event_date',
+        3 => 'title',
+        5 => 'field_link_single',
+        7 => 'group_wrapper_title_location',
+        9 => 'field_cost',
+        11 => 'field_registration',
+        12 => 'field_body',
+      ),
       'right' => array(
-        0 => 'related_title',
-        3 => 'field_person_fac_ref',
-        4 => 'field_alumni_ref',
-        8 => 'field_related_idea_story',
-        9 => 'field_related_other_unlimited',
-        11 => 'field_link_unlimited',
+        1 => 'related_title',
+        4 => 'field_person_ref_unlimited',
+        6 => 'field_related_idea_story',
+        8 => 'field_related_other_unlimited',
+        10 => 'field_link_unlimited',
+        13 => 'field_file_unlimited_public',
         14 => 'current_reunion_block',
         15 => 'group_wrapper_related',
         16 => 'conditional_stanford_block',
       ),
-      'left' => array(
-        1 => 'field_reunion_group_page_ref',
-        2 => 'field_event_date',
-        5 => 'title',
-        6 => 'field_link_single',
-        7 => 'group_wrapper_title_location',
-        10 => 'field_cost',
-        12 => 'field_registration',
-        13 => 'field_body',
-      ),
     ),
     'fields' => array(
-      'related_title' => 'right',
       'field_reunion_group_page_ref' => 'left',
+      'related_title' => 'right',
       'field_event_date' => 'left',
-      'field_person_fac_ref' => 'right',
-      'field_alumni_ref' => 'right',
       'title' => 'left',
+      'field_person_ref_unlimited' => 'right',
       'field_link_single' => 'left',
-      'group_wrapper_title_location' => 'left',
       'field_related_idea_story' => 'right',
+      'group_wrapper_title_location' => 'left',
       'field_related_other_unlimited' => 'right',
       'field_cost' => 'left',
       'field_link_unlimited' => 'right',
       'field_registration' => 'left',
       'field_body' => 'left',
+      'field_file_unlimited_public' => 'right',
       'current_reunion_block' => 'right',
       'group_wrapper_related' => 'right',
       'conditional_stanford_block' => 'right',
