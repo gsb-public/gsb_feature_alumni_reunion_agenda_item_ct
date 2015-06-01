@@ -381,7 +381,7 @@ Sold Out',
       'custom_remove' => '',
       'description_field' => 0,
       'file_directory' => '',
-      'file_extensions' => 'txt',
+      'file_extensions' => 'pdf doc docx xlsx xls ppt pptx txt odf ods odp',
       'filefield_paths' => array(
         'active_updating' => 0,
         'file_name' => array(
