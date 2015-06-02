@@ -577,61 +577,7 @@ Sold Out',
   );
 
   // Exported field_instance:
-  // 'node-alumni_reunion_agenda_item-field_person_fac_ref'
-  $field_instances['node-alumni_reunion_agenda_item-field_person_fac_ref'] = array(
-    'bundle' => 'alumni_reunion_agenda_item',
-    'custom_add_another' => '',
-    'custom_remove' => '',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'alumni_reunion_agenda_list' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_person_fac_ref',
-    'label' => 'Faculty',
-    'required' => 0,
-    'settings' => array(
-      'custom_add_another' => '',
-      'custom_remove' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'path' => '',
-        'size' => 120,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 20,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance:
-  // 'node-alumni_reunion_agenda_item-field_person_ref_unlimited'
+  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_person_ref_unlimited'
   $field_instances['node-alumni_reunion_agenda_item-field_person_ref_unlimited'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -1029,7 +975,7 @@ Not required',
   t('Body');
   t('Date/Time');
   t('Exclusive to');
-  t('Faculty');
+  t('Faculty, Alumni, PhD Student, MSx Fellow, or Staff');
   t('Files');
   t('Link');
   t('Location');
