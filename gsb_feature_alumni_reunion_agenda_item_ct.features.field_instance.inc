@@ -414,7 +414,7 @@ Sold Out',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 10,
+      'weight' => 25,
     ),
     'workbench_access_field' => 0,
   );
@@ -571,13 +571,13 @@ Sold Out',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'link_field',
-      'weight' => 25,
+      'weight' => 24,
     ),
     'workbench_access_field' => 0,
   );
 
   // Exported field_instance:
-  // Exported field_instance: 'node-alumni_reunion_agenda_item-field_person_ref_unlimited'
+  // 'node-alumni_reunion_agenda_item-field_person_ref_unlimited'
   $field_instances['node-alumni_reunion_agenda_item-field_person_ref_unlimited'] = array(
     'bundle' => 'alumni_reunion_agenda_item',
     'custom_add_another' => '',
@@ -629,7 +629,7 @@ Sold Out',
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 22,
+      'weight' => 21,
     ),
     'workbench_access_field' => 0,
   );
@@ -792,7 +792,7 @@ Not required',
         'size' => 120,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 23,
+      'weight' => 22,
     ),
     'workbench_access_field' => 0,
   );
@@ -845,7 +845,7 @@ Not required',
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 24,
+      'weight' => 23,
     ),
     'workbench_access_field' => 0,
   );
@@ -975,7 +975,6 @@ Not required',
   t('Body');
   t('Date/Time');
   t('Exclusive to');
-  t('Faculty, Alumni, PhD Student, MSx Fellow, or Staff');
   t('Files');
   t('Link');
   t('Location');
