@@ -665,7 +665,7 @@ Sold Out',
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_person_ref_unlimited',
-    'label' => 'Faculty, Alumni, PhD Student, MSx Fellow, or Staff',
+    'label' => 'People (Faculty, Alumni, PhD Student, MSx Fellow, Staff)',
     'required' => 0,
     'settings' => array(
       'custom_add_another' => '',
@@ -1023,10 +1023,10 @@ Not required',
   t('Date/Time');
   t('Exclusive to');
   t('Faculty');
-  t('Faculty, Alumni, PhD Student, MSx Fellow, or Staff');
   t('Files');
   t('Link');
   t('Location');
+  t('People (Faculty, Alumni, PhD Student, MSx Fellow, Staff)');
   t('Pricing');
   t('Publication or Event');
   t('Registration');
