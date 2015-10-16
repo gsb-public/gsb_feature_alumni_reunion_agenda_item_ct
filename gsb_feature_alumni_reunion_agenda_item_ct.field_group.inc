@@ -64,11 +64,12 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Related',
       'instance_settings' => array(
+        'classes' => 'group-wrapper-related',
         'description' => '',
-        'classes' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $export['group_wrapper_related|node|alumni_reunion_agenda_item|default'] = $field_group;
@@ -93,7 +94,8 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
     'format_settings' => array(
       'label' => 'Title and location wrapper',
       'instance_settings' => array(
-        'classes' => '',
+        'id' => '',
+        'classes' => 'group-wrapper-title-location',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
