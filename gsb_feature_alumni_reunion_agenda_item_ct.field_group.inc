@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -40,7 +40,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
       ),
     ),
   );
-  $export['group_related_content|node|alumni_reunion_agenda_item|form'] = $field_group;
+  $field_groups['group_related_content|node|alumni_reunion_agenda_item|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -72,7 +72,7 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_wrapper_related|node|alumni_reunion_agenda_item|default'] = $field_group;
+  $field_groups['group_wrapper_related|node|alumni_reunion_agenda_item|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -105,7 +105,13 @@ function gsb_feature_alumni_reunion_agenda_item_ct_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_wrapper_title_location|node|alumni_reunion_agenda_item|default'] = $field_group;
+  $field_groups['group_wrapper_title_location|node|alumni_reunion_agenda_item|default'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Related');
+  t('Related Content');
+  t('Title and location wrapper');
+
+  return $field_groups;
 }
